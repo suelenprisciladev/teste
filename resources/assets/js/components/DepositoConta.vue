@@ -39,7 +39,6 @@
     export default {
         data() {
             return {
-                valor: null,
                 conta: {},
                 loading: false
             }
