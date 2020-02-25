@@ -14,13 +14,14 @@ Serviços desenvolvidos:
 
 
 - Visualizar todas as contas cadastradas
-   localhost:8080/api/contas
-
-- Verificar o saldo de uma conta corrente;
-   localhost:8080/api/contas/{id}
-
-- Realizar um depósito em uma determinada conta corrente;
-   localhost:8080/api/deposito/{id}
-
-- Realizar um saque de uma determinada conta corrente.
-   localhost:8080/api/saque/{id}
+    localhost:8080/api/contas
+    
+- Verificar o saldo de uma conta corrente
+    localhost:8080/api/contas/{id}
+    
+- Realizar um depósito em uma determinada conta corrente
+    localhost:8080/api/deposito/{id}
+    
+- Realizar um saquem em uma determinada conta corrente
+    localhost:8080/api/saque/{id}
+    
