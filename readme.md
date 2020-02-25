@@ -1,7 +1,7 @@
 ## Sobre
 
 Desenvolvido em:
-- API Rest em Laravel 5.6
+- API Rest em Laravel 5.6.39
 - O frontend em Vue JS
 
 Projeto carregado em localhost:8080
