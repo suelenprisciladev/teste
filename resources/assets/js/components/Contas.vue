@@ -13,7 +13,7 @@
             <tbody>
             <tr v-for="conta in contas" :key="conta.id">
                 <td>{{ conta.conta }}</td>
-                <td>{{ conta.saldo }}</td>
+                <td>{{ conta.saldo | currency }}</td>
                 <td>
                     <div class="btn-group" role="group">
                         <router-link :to="{name:'deposito', params: { id:conta.id }}" class="btn btn-primary">Depósito</router-link>&nbsp;

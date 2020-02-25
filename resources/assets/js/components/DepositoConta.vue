@@ -19,7 +19,7 @@
                         </tr>
                         <tr>
                             <td>Saldo:</td>
-                            <td>{{ conta[0].saldo }}</td>
+                            <td>{{ conta[0].saldo | currency }}</td>
                         </tr>
                     </table>
                 </div>
