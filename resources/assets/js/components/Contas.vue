@@ -5,7 +5,7 @@
         <table class="table table-bordered">
             <thead class="thead-light">
             <tr>
-                <th class="coluna">Conta</th>
+                <th class="coluna">Nº da conta</th>
                 <th class="coluna">Saldo</th>
                 <th class="coluna">Ações</th>
             </tr>

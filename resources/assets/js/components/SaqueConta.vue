@@ -3,29 +3,29 @@
         <h3 class="text-center">Fazer Saque</h3>
         <div class="row">
             <div class="col-md-6">
-                <div>
+                <div v-if="!loading">
                     <table class="table table-bordered">
                         <tr>
                             <td>Cliente:</td>
-                            <td>{{ conta[0].nome }}</td>
+                            <td>{{ conta.data[0].nome }}</td>
                         </tr>
                         <tr>
                             <td>Endereço:</td>
-                            <td>{{ conta[0].endereco }}</td>
+                            <td>{{ conta.data[0].endereco }}</td>
                         </tr>
                         <tr>
                             <td>Nº da conta:</td>
-                            <td>{{ conta[0].conta }}</td>
+                            <td>{{ conta.data[0].conta }}</td>
                         </tr>
                         <tr>
                             <td>Saldo:</td>
-                            <td>{{ conta[0].saldo | currency }}</td>
+                            <td>{{ conta.data[0].saldo | currency }}</td>
                         </tr>
                     </table>
                 </div>
                 <form @submit.prevent="updateConta">
                     <div class="form-group">
-                        <label>Valor</label>
+                        <label>Valor do saque</label>
                         <input type="text" class="form-control" v-model="conta.valor">
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
@@ -39,14 +39,17 @@
     export default {
         data() {
             return {
-                conta: {}
+                conta: {},
+                loading: false
             }
         },
         created() {
+            this.loading = true;
             this.axios
                 .get(`http://localhost:8080/api/contas/${this.$route.params.id}`)
                 .then(response => {
-                    this.conta = response.data.data;
+                    this.conta = response.data;
+                    this.loading = false;
                 });
         },
         methods: {
