@@ -2030,11 +2030,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       conta: {},
-      loading: false
+      loading: false,
+      errors: []
     };
   },
   created: function created() {
@@ -2055,6 +2061,12 @@ __webpack_require__.r(__webpack_exports__);
           name: 'home'
         }); //console.log(response);
 
+      })["catch"](function (error) {
+        _this2.errors = [];
+
+        if (error.response.status == 404) {
+          _this2.errors.push("Preencha o valor!");
+        }
       });
     }
   }
@@ -2108,11 +2120,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       conta: {},
-      loading: false
+      loading: false,
+      errors: []
     };
   },
   created: function created() {
@@ -2132,6 +2150,12 @@ __webpack_require__.r(__webpack_exports__);
         _this2.$router.push({
           name: 'home'
         });
+      })["catch"](function (error) {
+        _this2.errors = [];
+
+        if (error.response.status == 404) {
+          _this2.errors.push("Preencha o valor!");
+        }
       });
     }
   }
@@ -38080,6 +38104,18 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", [
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error) {
+                  return _c("li", { key: error }, [_vm._v(_vm._s(error))])
+                }),
+                0
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _c(
           "form",
           {
@@ -38184,6 +38220,18 @@ var render = function() {
                   ])
                 ])
               ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.errors.length
+          ? _c("p", [
+              _c(
+                "ul",
+                _vm._l(_vm.errors, function(error) {
+                  return _c("li", { key: error }, [_vm._v(_vm._s(error))])
+                }),
+                0
+              )
             ])
           : _vm._e(),
         _vm._v(" "),

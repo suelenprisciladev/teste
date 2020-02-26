@@ -23,6 +23,11 @@
                         </tr>
                     </table>
                 </div>
+                <p v-if="errors.length">
+                    <ul>
+                        <li v-for="error in errors" :key="error">{{ error }}</li>
+                    </ul>
+                </p>
                 <form @submit.prevent="updateConta">
                     <div class="form-group">
                         <label>Valor do saque</label>
@@ -40,7 +45,8 @@
         data() {
             return {
                 conta: {},
-                loading: false
+                loading: false,
+                errors:[]
             }
         },
         created() {
@@ -58,6 +64,12 @@
                     .put(`http://localhost:8080/api/saque/${this.$route.params.id}`, this.conta)
                     .then((response) => {
                         this.$router.push({name: 'home'});
+                    })
+                    .catch(error => {
+                        this.errors = [];
+                        if (error.response.status == 404){
+                            this.errors.push("Preencha o valor!");
+                        }
                     });
             }
         }
